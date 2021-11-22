@@ -13,7 +13,7 @@ ZSH_THEME="bira"
 DISABLE_AUTO_UPDATE="false"
 
 # Plugins
-plugins=(git-extras osx yarn zsh-completions brew wd python vi-mode colorize docker docker-compose zsh-syntax-highlighting)
+plugins=(golang rust git-extras macos yarn zsh-completions brew wd python vi-mode colorize docker docker-compose zsh-syntax-highlighting)
 
 # For zsh-completions
 autoload -U compinit && compinit
