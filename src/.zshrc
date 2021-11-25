@@ -13,7 +13,7 @@ ZSH_THEME="bira"
 DISABLE_AUTO_UPDATE="false"
 
 # Plugins
-plugins=(golang rust git-extras macos yarn zsh-completions brew wd python vi-mode colorize docker docker-compose zsh-syntax-highlighting)
+plugins=(golang rust git-extras macos yarn zsh-completions brew wd python vi-mode colorize docker docker-compose zsh-syntax-highlighting history pipenv pip compleat zsh-autosuggestions)
 
 # For zsh-completions
 autoload -U compinit && compinit
@@ -49,6 +49,24 @@ set shell=bash\ -i
 #	-Xmx2g
 #	-XX:+CMSClassUnloadingEnabled
 #	-Xverify:none'
+#
+
+# for pipenv
+eval "$( brew shellenv )"
+export PYENV_VERSION=3.9.5  # Set your preferred Python version.
+export PYENV_ROOT=~/.pyenv
+export PIPX_BIN_DIR=~/.local/bin
+export -U PATH path         # -U eliminates duplicates
+path=( 
+    $PIPX_BIN_DIR
+    $PYENV_ROOT/{bin,shims} 
+    $path
+)
+
+eval "$( pyenv init - )"
+eval "$( pip completion --zsh )"
+eval "$( register-python-argcomplete pipx )"
+# eval "$( pipenv --completion )"
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
