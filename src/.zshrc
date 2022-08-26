@@ -13,11 +13,32 @@ ZSH_THEME="bira"
 DISABLE_AUTO_UPDATE="false"
 
 # Plugins
-plugins=(golang rust git-extras macos yarn zsh-completions brew wd python vi-mode colorize docker docker-compose zsh-syntax-highlighting history pipenv pip compleat zsh-autosuggestions)
+plugins=(
+		golang
+		rust
+		git-extras
+		macos
+		yarn
+		zsh-completions
+		wd
+		python
+		vi-mode
+		colorize
+		docker
+		docker-compose
+		zsh-syntax-highlighting
+		history
+		pipenv
+		compleat
+		zsh-autosuggestions
+)
+#		brew
+#		pip
 
 # For zsh-completions
 autoload -U compinit && compinit
 
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
 
 # Vi mode normal prompt indicator
@@ -52,22 +73,36 @@ set shell=bash\ -i
 #
 
 # for pipenv
-eval "$( brew shellenv )"
-export PYENV_VERSION=3.9.5  # Set your preferred Python version.
-export PYENV_ROOT=~/.pyenv
-export PIPX_BIN_DIR=~/.local/bin
-export -U PATH path         # -U eliminates duplicates
-path=( 
-    $PIPX_BIN_DIR
-    $PYENV_ROOT/{bin,shims} 
-    $path
-)
-
-eval "$( pyenv init - )"
-eval "$( pip completion --zsh )"
-eval "$( register-python-argcomplete pipx )"
+#eval "$( brew shellenv )"
+#export PYENV_VERSION=3.9.5  # Set your preferred Python version.
+#export PYENV_ROOT=~/.pyenv
+#export PIPX_BIN_DIR=~/.local/bin
+#export -U PATH path         # -U eliminates duplicates
+#path=( 
+#    $PIPX_BIN_DIR
+#    $PYENV_ROOT/{bin,shims} 
+#    $path
+#)
+#
+#eval "$( pyenv init - )"
+#eval "$( pip completion --zsh )"
+#eval "$( register-python-argcomplete pipx )"
 # eval "$( pipenv --completion )"
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
+
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+export GOROOT=/usr/local/go-1.18.1
+export GOPATH=$HOME/projects/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$HOME/projects/go/bin
+. "$HOME/.cargo/env"
