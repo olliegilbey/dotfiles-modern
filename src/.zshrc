@@ -14,6 +14,8 @@ DISABLE_AUTO_UPDATE="false"
 
 # Plugins
 plugins=(
+		nvm
+		node
 		golang
 		rust
 		git-extras
@@ -97,8 +99,12 @@ fi
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
 
 export GOROOT=/usr/local/go-1.18.1
 export GOPATH=$HOME/projects/go
@@ -106,3 +112,8 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/projects/go/bin
 . "$HOME/.cargo/env"
+
+# fnm
+export PATH=/home/olliegilbey/.fnm:$PATH
+eval "`fnm env`"
+export PATH=$PATH:"/mnt/c/Users/ollie/AppData/Local/Programs/Microsoft VS Code/bin/"

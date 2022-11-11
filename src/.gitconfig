@@ -2,8 +2,8 @@
 	email = olliegilbey@gmail.com
 	name = Oliver Gilbey
 
-[url "git@github.com:"]
-    insteadOf = https://github.com/
+#[url "git@github.com:"]
+#    insteadOf = https://github.com/
 
 [color]
     diff = auto
