@@ -80,3 +80,4 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # Use Java 8 by default
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+. "$HOME/.cargo/env"

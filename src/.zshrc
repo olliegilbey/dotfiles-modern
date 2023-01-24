@@ -106,7 +106,7 @@ fi
 #[ -s "NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 
-export GOROOT=/usr/local/go-1.18.1
+#export GOROOT=/usr/local/go-1.18.1
 export GOPATH=$HOME/projects/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
@@ -115,5 +115,12 @@ export PATH=$PATH:$HOME/projects/go/bin
 
 # fnm
 export PATH=/home/olliegilbey/.fnm:$PATH
-eval "`fnm env`"
+# eval "`fnm env`"
 export PATH=$PATH:"/mnt/c/Users/ollie/AppData/Local/Programs/Microsoft VS Code/bin/"
+
+export BREW_HOME="/home/linuxbrew/.linuxbrew/bin"
+export PATH="$PATH:$BREW_HOME"
+
+# fnm
+export PATH=/home/ollie/.fnm:$PATH
+eval "`fnm env`"
