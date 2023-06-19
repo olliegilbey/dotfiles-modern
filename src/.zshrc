@@ -5,6 +5,8 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 ZSH_THEME="bira"
 #ZSH_THEME="lambda"
 
+export EDITOR="nvim"
+
 #alias look_busy="docker run -it --rm svenstaro/genact"
 
 #[[ $EMACS = t ]] && unsetopt zle
@@ -41,7 +43,7 @@ plugins=(
 autoload -U compinit && compinit
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # Vi mode normal prompt indicator
 function zle-line-init zle-keymap-select {
@@ -80,9 +82,9 @@ set shell=bash\ -i
 #export PYENV_ROOT=~/.pyenv
 #export PIPX_BIN_DIR=~/.local/bin
 #export -U PATH path         # -U eliminates duplicates
-#path=( 
+#path=(
 #    $PIPX_BIN_DIR
-#    $PYENV_ROOT/{bin,shims} 
+#    $PYENV_ROOT/{bin,shims}
 #    $path
 #)
 #
@@ -102,25 +104,16 @@ fi
 #export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-
 #export GOROOT=/usr/local/go-1.18.1
-export GOPATH=$HOME/projects/go
+export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-export PATH=$PATH:$HOME/projects/go/bin
+export PATH=$PATH:$HOME/go/bin
 . "$HOME/.cargo/env"
 
-# fnm
-export PATH=/home/olliegilbey/.fnm:$PATH
-# eval "`fnm env`"
-export PATH=$PATH:"/mnt/c/Users/ollie/AppData/Local/Programs/Microsoft VS Code/bin/"
+eval "$(fnm env --use-on-cd)"
+export PATH=/usr/local/share/npm/bin:$PATH
 
-export BREW_HOME="/home/linuxbrew/.linuxbrew/bin"
-export PATH="$PATH:$BREW_HOME"
-
-# fnm
-export PATH=/home/ollie/.fnm:$PATH
-eval "`fnm env`"
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="/Users/olivergilbey/cudos/rust/cwc/target/release:$PATH"
