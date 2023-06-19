@@ -1,9 +1,11 @@
 fpath=( "$HOME/.zfunctions" $fpath )
 # oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 ZSH_THEME="bira"
 #ZSH_THEME="lambda"
+
+source $ZSH/oh-my-zsh.sh
 
 export EDITOR="nvim"
 
