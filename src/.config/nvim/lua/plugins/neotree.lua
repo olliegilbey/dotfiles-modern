@@ -66,6 +66,9 @@ return {
   opts = {
     filesystem = {
       bind_to_cwd = true,
+      filtered_items = {
+        visible = true,
+      },
     },
   },
 }
